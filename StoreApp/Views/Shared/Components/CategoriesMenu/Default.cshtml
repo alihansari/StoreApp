@@ -1,0 +1,19 @@
+@model IEnumerable<Category>
+
+@if (Model.Count() > 0)
+{
+    <div class="my-4">
+        <ul class="list-group">
+            @foreach (var cat in Model)
+            {
+                <li class="list-group-item">@cat.Name</li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <div>
+        <p>Kategori Bulunamadı</p>
+    </div>
+}
