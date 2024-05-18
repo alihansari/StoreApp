@@ -52,18 +52,6 @@ public class ProductManager : IProductService
 
     public void UpdateProduct(ProductDtoForUpdate productDto)
     {
-        //var entity = _manager.Product.GetProduct(productDto.Id, true);
-        //if (entity is null)
-        //{
-        //    throw new ArgumentNullException("Product Not Found");
-        //}
-        //else
-        //{
-        //    entity.ProductName = productDto.ProductName;
-        //    entity.Price = productDto.Price;
-        //    entity.CategoryId = productDto.CategoryId;
-        //    _manager.Save();
-        //}
         var entity = _mapper.Map<Product>(productDto);
         _manager.Product.UpdateOneProduct(entity);
         _manager.Save();
