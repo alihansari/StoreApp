@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
 using Services.Abstract;
+using Microsoft.AspNetCore.Mvc;
 
 namespace StoreApp.Components
 {
