@@ -6,6 +6,7 @@ using Repositories.Abstract;
 using Repositories.Concrete;
 using Services.Abstract;
 using Services.Concrete;
+using StoreApp.Models;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +22,7 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
-    options.Cookie.Name = "StoreApp Session";
+    options.Cookie.Name = "StoreApp.Session";
     options.IdleTimeout = TimeSpan.FromMinutes(10);
 });
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -34,7 +35,7 @@ builder.Services.AddScoped<IServiceManager, ServiceManager>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 
-builder.Services.AddSingleton<Cart>();
+builder.Services.AddScoped<Cart>(c => SessionCart.GetCart(c));
 
 builder.Services.AddAutoMapper(typeof(Program));
 

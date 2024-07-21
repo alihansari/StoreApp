@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Services.Abstract;
 
+
 namespace StoreApp.Pages
 {
     public class CartModel : PageModel
@@ -10,18 +11,15 @@ namespace StoreApp.Pages
         private readonly IServiceManager _manager;
         public Cart Cart { get; set; } // IoC
         public string ReturnUrl { get; set; } = "/";
-        public CartModel(IServiceManager manager, Cart cart)
+        public CartModel(IServiceManager manager, Cart cartService)
         {
             _manager = manager;
-            Cart = cart;
+            Cart = cartService;
         }
-
-
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
         }
-
         public IActionResult OnPost(int productId, string returnUrl)
         {
             Product? product = _manager.ProductService.GetOneProduct(productId, false);
@@ -30,10 +28,8 @@ namespace StoreApp.Pages
             {
                 Cart.AddItem(product, 1);
             }
-
-            return Page(); //retrunUrl
+            return Page(); //returnUrl
         }
-
         public IActionResult OnPostRemove(int id, string returnUrl)
         {
             Cart.RemoveLine(Cart.Lines.First(cl => cl.Product.Id.Equals(id)).Product);
