@@ -34,4 +34,5 @@ app.UseEndpoints(endpoints =>
 
 
 app.MapDefaultControllerRoute();
+app.ConfigureAndCheckMigration();
 app.Run();

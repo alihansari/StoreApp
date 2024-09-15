@@ -50,6 +50,12 @@ public class ProductManager : IProductService
         return _mapper.Map<ProductDtoForUpdate>(product);
     }
 
+    public IEnumerable<Product> GetShowCaseProducts(bool trackChanges)
+    {
+        var products = _manager.Product.GetShowCaseProducts(trackChanges);
+        return products;
+    }
+
     public void UpdateProduct(ProductDtoForUpdate productDto)
     {
         var entity = _mapper.Map<Product>(productDto);
