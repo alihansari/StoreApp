@@ -35,4 +35,5 @@ app.UseEndpoints(endpoints =>
 
 app.MapDefaultControllerRoute();
 app.ConfigureAndCheckMigration();
+app.ConfigureLocalization();
 app.Run();

@@ -18,5 +18,9 @@ namespace StoreApp.Infrastructure.Extensions
                 context.Database.Migrate();
             }
         }
+        public static void ConfigureLocalization(this WebApplication app)
+        {
+            
+        }
     }
 }
