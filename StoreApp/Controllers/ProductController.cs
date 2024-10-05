@@ -1,13 +1,11 @@
-using Entities.Models;
+using Entities.RequestParameters;
 using Microsoft.AspNetCore.Mvc;
-using Repositories;
-using Repositories.Abstract;
 using Services.Abstract;
 
 
 namespace StoreApp.Controllers
 {
-    public class ProductController : Controller
+	public class ProductController : Controller
     {
         private readonly IServiceManager _manager;
 
@@ -16,9 +14,9 @@ namespace StoreApp.Controllers
             _manager = manager;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(ProductRequestParameters p)
         {
-            var model = _manager.ProductService.GetAllProducts(false).ToList();
+            var model = _manager.ProductService.GetAllProductWithDetails(p);
             return View(model);
         }
 

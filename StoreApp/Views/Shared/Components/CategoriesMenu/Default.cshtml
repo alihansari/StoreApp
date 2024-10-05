@@ -6,7 +6,9 @@
         <ul class="list-group">
             @foreach (var cat in Model)
             {
-                <li class="list-group-item">@cat.Name</li>
+                <li class="list-group-item">
+                    <a asp-action="Index" asp-route-categoryId="@cat.Id">@cat.Name</a>
+                </li>
             }
         </ul>
     </div>
@@ -14,6 +16,6 @@
 else
 {
     <div>
-        <p>Kategori Bulunamadı</p>
+        <p>Category is not Found</p>
     </div>
 }
