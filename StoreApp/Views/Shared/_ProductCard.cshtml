@@ -17,13 +17,13 @@
             <div class="d-flex justify-content-center">   
                 <div class="btn btn-group">
                     <a asp-controller="Product" asp-action="Get" asp-route-id="@Model?.Id"
-                        class="btn btn-outline-secondary">
+                        class="btn btn-outline-secondary rounded-2">
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                     <form id="@Model?.Id" asp-page="/cart" method="post">
                         <input type="hidden" asp-for="Id" name="ProductId" />
                         <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()">
-                        <button type="submit" class="btn btn-outline-secondary">
+                        <button type="submit" class="btn btn-outline-secondary mx-1">
                             <i class="fa fa-cart-plus"></i>
                         </button>
                     </form>

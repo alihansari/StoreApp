@@ -30,7 +30,10 @@ namespace Repositories.Concrete
 
         public IQueryable<Product> GetAllProductWithDetails(ProductRequestParameters p)
         {
-            return _context.Products.FilteredByCategoryId(p.CategoryId);
+            return _context
+                .Products
+                .FilteredByCategoryId(p.CategoryId)
+                .FilteredBySearchTerm(p.SearchTerm);
         }
 
         public Product? GetProduct(int id, bool trackChanges)
