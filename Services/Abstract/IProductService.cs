@@ -7,6 +7,7 @@ namespace Services.Abstract
     public interface IProductService
     {
         IEnumerable<Product> GetAllProducts(bool trackChanges);
+        IEnumerable<Product> GetLastestProducts(int n, bool trackChanges);
         IEnumerable<Product> GetAllProductWithDetails(ProductRequestParameters p);
         IEnumerable<Product> GetShowCaseProducts(bool trackChanges);
         Product? GetOneProduct(int id, bool trackChanges);
