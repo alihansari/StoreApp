@@ -16,12 +16,11 @@
         @RenderSection("Header", false)
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 h-100">
             @RenderBody()
         </main>
     </div>
     <footer>
-        @RenderSection("Footer", false)
         <partial name="_Footer" />
     </footer>
     <script src="~/lib/jquery/jquery.min.js"></script>
