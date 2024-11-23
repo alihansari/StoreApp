@@ -6,5 +6,18 @@ namespace Entities.RequestParameters
         public decimal MinPrice { get; set; } = 0;
         public decimal MaxPrice { get; set; } = 9999999999999999.99m;
         public bool IsValidPrice => MaxPrice > MinPrice;
+
+        public int PageNumber { get; set; }
+        public int PageSize { get; set; }
+
+        public ProductRequestParameters() : this(1, 6)
+        {
+
+        }
+        public ProductRequestParameters(int pageNumber = 1, int pageSize = 6)
+        {
+            PageNumber = pageNumber;
+            PageSize = pageSize;
+        }
     }
 }

@@ -34,7 +34,8 @@ namespace Repositories.Concrete
                 .Products
                 .FilteredByCategoryId(p.CategoryId)
                 .FilteredBySearchTerm(p.SearchTerm)
-                .FilteredByPrice(p.MinPrice, p.MaxPrice, p.IsValidPrice);
+                .FilteredByPrice(p.MinPrice, p.MaxPrice, p.IsValidPrice)
+                .ToPaginate(p.PageNumber, p.PageSize);
         }
 
         public Product? GetProduct(int id, bool trackChanges)
