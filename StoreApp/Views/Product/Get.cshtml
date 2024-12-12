@@ -18,7 +18,7 @@
         <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary"><i class="fa-solid fa-house"></i>
             Home</a>
         <form id="@Model?.Id" asp-page="/cart" method="post">
-            <input type="hidden" name="productId" value="@Model.Id">
+            <input type="hidden" name="productId" value="@Model?.Id">
             <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()">
             <button type="submit" class="btn btn-outline-secondary rounded-0">
                 <i class="fa fa-cart-plus"></i>
